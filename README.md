@@ -1,24 +1,55 @@
-# README
+### Rails Market
+> Status: Incomplete ⚠️
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<table>
+  <tr>
+    <td>Ruby version</td>
+    <td>
+      2.7.0
+    </td>
+  </tr>
+  <tr>
+    <td>Rails version</td>
+    <td>
+       6.1.6.1
+    </td>
+  </tr>
+  <tr>
+    <td>Database</td>
+    <td>
+      PostgreSQL
+    </td>
+  </tr>
+</table>
 
-Things you may want to cover:
+## Functionalities:
++ User sign up and login
++ Profile edit
++ Item CRUD
++ Questions CRUD
++ Only admin can access category management
 
-* Ruby version
+## Instalation instructions:
+```
+#Clone the repository.
+git clone https://github.com/mateusflorez/rubymvcblog.git
 
-* System dependencies
+#Open the terminal on the project root file.
+cd rubymvcblog
 
-* Configuration
+#Install Ruby on Rails dependencies
+bundle install
 
-* Database creation
+#Install Node dependencies
+yarn install
 
-* Database initialization
+#Create the development and test databases
+rails db:create
 
-* How to run the test suite
+#Create the tables
+rails db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#Run the project
+rails s
+```
+Open the browser at the address `localhost:3000`.
