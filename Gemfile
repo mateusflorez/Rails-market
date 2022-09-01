@@ -29,3 +29,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "rails-i18n", "~> 7.0"
 
 
+
+gem "devise", "~> 4.8"
+
+gem "devise-i18n", "~> 1.10"
