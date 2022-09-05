@@ -15,6 +15,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem "better_errors", "~> 2.9"
+  gem "rails-erd", "~> 1.7"
 end
 
 group :development do
@@ -31,3 +32,5 @@ gem "rails-i18n", "~> 7.0"
 
 
 gem "devise", "~> 4.8"
+
+
