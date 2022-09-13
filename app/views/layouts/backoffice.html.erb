@@ -19,6 +19,9 @@
         <%= javascript_pack_tag 'backoffice', 'data-turbolinks-track': 'reload' %>
     </head>
     <body class="sb-nav-fixed">
+      <%= render 'layouts/backoffice_shared/topbar' %>
+      <%= render 'layouts/backoffice_shared/sidenav' %>
       <%= yield %>
+      <%= render 'layouts/backoffice_shared/footer' %>
     </body>
 </html>
