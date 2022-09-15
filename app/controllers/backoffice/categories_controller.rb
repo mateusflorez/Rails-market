@@ -1,4 +1,5 @@
 class Backoffice::CategoriesController < BackofficeController
+  before_action :set_category, only: [:edit, :update]
 
   def index
     @categories = Category.all
@@ -22,9 +23,19 @@ class Backoffice::CategoriesController < BackofficeController
   end
 
   def update
+    if @category.update(category_params)
+      flash[:success] = 'Category successfuly updated.'
+      redirect_to backoffice_categories_path
+    else
+      render :edit
+    end
   end
 
   private
+
+  def set_category
+    @category = Category.find(params[:id])
+  end
 
   def category_params
     params.require(:category).permit(:description)
