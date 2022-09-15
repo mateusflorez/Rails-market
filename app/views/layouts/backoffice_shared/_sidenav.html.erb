@@ -3,11 +3,16 @@
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div class="sb-sidenav-menu">
                 <div class="nav">
-                    <div class="sb-sidenav-menu-heading">Core</div>
-                    <a class="nav-link" href="index.html">
+                    <div class="sb-sidenav-menu-heading"></div>
+                    <%= link_to backoffice_dashboard_path, class: "nav-link" do %>
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Dashboard
-                    </a>
+                    <% end %>
+                    <div class="sb-sidenav-menu-heading">Management</div>
+                    <%= link_to backoffice_categories_index_path, class: "nav-link" do %>
+                        <div class="sb-nav-link-icon"><i class="fas fa-th-list"></i></div>
+                        Categories
+                    <% end %>
                 </div>
             </div>
             <div class="sb-sidenav-footer">
