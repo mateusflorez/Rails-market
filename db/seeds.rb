@@ -17,3 +17,13 @@ categories.each do |category|
 end
 
 puts 'Categories successfuly generated!'
+
+#################################################################
+
+puts 'Generating administrator...'
+
+Admin.create!(email: "admin@admin.com",
+              password: "admin@admin.com",
+              password_confirmation: "admin@admin.com")
+
+puts 'Administrator successfuly generated!'
