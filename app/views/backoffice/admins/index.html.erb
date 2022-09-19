@@ -24,8 +24,14 @@
                                 <i class="fas fa-edit"></i>
                             <% end %>
                             &nbsp &nbsp
-                            <%= link_to "#", class: "btn btn-danger" do %>
-                                <i class="fas fa-trash"></i>
+                            <% if current_admin.id != admin.id %>
+                                <%= link_to backoffice_admin_path(admin), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure?"} do %>
+                                    <i class="fas fa-trash"></i>
+                                <% end %>
+                            <% elsif %>
+                            <%= link_to '#', class: "btn btn-secondary", disabled: "disabled" do %>
+                                    <i class="fas fa-minus"></i>
+                                <% end %>
                             <% end %>
                         </td>
                     </tr>

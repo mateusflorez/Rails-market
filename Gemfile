@@ -30,3 +30,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "devise", "~> 4.8"
 
 gem "bootstrap_sb_admin_base_v2", "~> 0.3.6"
+
+gem "faker", "~> 2.23"
