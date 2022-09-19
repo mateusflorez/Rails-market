@@ -21,7 +21,12 @@
     <body class="sb-nav-fixed">
       <%= render 'layouts/backoffice_shared/topbar' %>
       <%= render 'layouts/backoffice_shared/sidenav' %>
+      <div id="layoutSidenav_content">
+      <main>
+      <div class="container-fluid px-4">
       <%= yield %>
+      </div>
+      </main>
       <%= render 'layouts/backoffice_shared/footer' %>
     </body>
 </html>

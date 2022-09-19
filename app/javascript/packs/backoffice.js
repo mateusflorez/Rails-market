@@ -1,4 +1,5 @@
 //= require bootstrap_sb_admin_base_v2
+
 window.addEventListener('DOMContentLoaded', event => {
 
     // Toggle the side navigation

@@ -12,8 +12,7 @@ class Backoffice::CategoriesController < BackofficeController
   def create
     @category = Category.new(category_params)
     if @category.save
-      flash[:success] = 'Category successfuly created.'
-      redirect_to backoffice_categories_path
+      redirect_to backoffice_categories_path, notice: 'Category successfuly created.'
     else
       render :new
     end
@@ -24,8 +23,7 @@ class Backoffice::CategoriesController < BackofficeController
 
   def update
     if @category.update(category_params)
-      flash[:success] = 'Category successfuly updated.'
-      redirect_to backoffice_categories_path
+      redirect_to backoffice_categories_path, notice: 'Category successfuly updated.'
     else
       render :edit
     end
