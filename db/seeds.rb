@@ -22,8 +22,11 @@ puts 'Categories successfuly generated!'
 
 puts 'Generating administrator...'
 
-Admin.create!(email: "admin@admin.com",
+Admin.create!(
+              email: "admin@admin.com",
               password: "admin@admin.com",
-              password_confirmation: "admin@admin.com")
+              password_confirmation: "admin@admin.com",
+              name: "Administrator"
+             )
 
 puts 'Administrator successfuly generated!'
