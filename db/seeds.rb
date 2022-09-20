@@ -26,7 +26,8 @@ Admin.create!(
               email: "admin@admin.com",
               password: "admin@admin.com",
               password_confirmation: "admin@admin.com",
-              name: "Administrator"
+              name: "Administrator",
+              role: 0
              )
 
 puts 'Administrator successfuly generated!'

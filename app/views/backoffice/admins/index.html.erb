@@ -12,6 +12,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Access type</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -21,6 +22,7 @@
                         <td><%= admin.id %></td>
                         <td><%= admin.name %></td>
                         <td><%= admin.email %></td>
+                        <td><%= admin.role %></td>
                         <td style="width: 150px" class="text-center">
                             <%= link_to edit_backoffice_admin_path(admin), class: "btn btn-primary" do %>
                                 <i class="fas fa-edit"></i>
