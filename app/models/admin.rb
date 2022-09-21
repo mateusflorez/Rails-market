@@ -1,7 +1,7 @@
 class Admin < ApplicationRecord
   enum role: [:administrator, :moderator]
 
-  #scope :moderators, -> { where(:role => 'administrator')}
+  scope :moderators, -> { where(:role => 1)}
 
   # Ex:- scope :active, -> {where(:active => true)}
   # Include default devise modules. Others available are:

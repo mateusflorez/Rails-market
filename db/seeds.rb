@@ -20,7 +20,7 @@ puts 'Categories successfuly generated!'
 
 #################################################################
 
-puts 'Generating administrator...'
+puts 'Generating administrators...'
 
 Admin.create!(
               email: "admin@admin.com",
@@ -30,4 +30,12 @@ Admin.create!(
               role: 0
              )
 
-puts 'Administrator successfuly generated!'
+Admin.create!(
+email: "mod@mod.com",
+password: "mod@mod.com",
+password_confirmation: "mod@mod.com",
+name: "Moderator",
+role: 1
+)
+
+puts 'Administrators successfuly generated!'
