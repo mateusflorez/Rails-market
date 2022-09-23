@@ -6,7 +6,11 @@ class AdminPolicy < ApplicationPolicy
 
   class Scope < Scope
      def resolve
-       scope
+       if user.administrator?
+        scope.all
+       else
+        scope.moderators
+       end
      end
   end
 end
