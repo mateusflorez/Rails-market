@@ -8,6 +8,12 @@
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                 <div class="card-body">
+                                    <% flash.each do |message_type, message| %>
+                                        <%= content_tag 'div', class: "alert alert-danger alert-dismissible fade show", role: 'alert' do %>
+                                            <%= message %>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        <% end %>
+                                    <% end %>
                                     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                                     <form>
                                         <div class="form-floating mb-3">
