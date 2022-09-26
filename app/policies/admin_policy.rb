@@ -4,6 +4,18 @@ class AdminPolicy < ApplicationPolicy
     user.administrator?
   end
 
+  def edit?
+    user.administrator?
+  end
+
+  def permitted_attributes
+    if user.administrator?
+      [:email, :role, :password, :password_confirmation, :name]
+    else
+      [:email, :password, :password_confirmation, :name]
+    end
+  end
+
   class Scope < Scope
      def resolve
        if user.administrator?
