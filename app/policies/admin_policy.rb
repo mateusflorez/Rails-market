@@ -8,6 +8,10 @@ class AdminPolicy < ApplicationPolicy
     user.administrator?
   end
 
+  def destroy?
+    user.administrator?
+  end
+
   def permitted_attributes
     if user.administrator?
       [:email, :role, :password, :password_confirmation, :name]
