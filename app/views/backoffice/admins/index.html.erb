@@ -24,7 +24,7 @@
                         <td><%= admin.name %></td>
                         <td><%= admin.role %></td>
                         <td style="width: 165px">
-                            <%= link_to '#', class: "btn btn-info text-white", remote: true do %>
+                            <%= link_to edit_backoffice_send_mail_path(admin), class: "btn btn-info text-white", remote: true do %>
                                 <i class="fas fa-envelope"></i>
                             <% end %>
                             &nbsp
