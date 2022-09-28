@@ -13,7 +13,6 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <th>Email</th>
                         <th>Access type</th>
                         <th>Actions</th>
                     </tr>
@@ -23,13 +22,16 @@
                     <tr>
                         <td><%= admin.id %></td>
                         <td><%= admin.name %></td>
-                        <td><%= admin.email %></td>
                         <td><%= admin.role %></td>
-                        <td style="width: 120px">
+                        <td style="width: 165px">
+                            <%= link_to '#', class: "btn btn-info text-white", remote: true do %>
+                                <i class="fas fa-envelope"></i>
+                            <% end %>
+                            &nbsp
                             <%= link_to edit_backoffice_admin_path(admin), class: "btn btn-primary" do %>
                                 <i class="fas fa-edit"></i>
                             <% end %>
-                            &nbsp &nbsp
+                            &nbsp
                             <% if current_admin.id != admin.id && policy(@admins).destroy? %>
                                 <%= link_to backoffice_admin_path(admin), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure?"} do %>
                                     <i class="fas fa-trash"></i>
@@ -48,3 +50,4 @@
     </div>
 </div>
 <!-- Table end -->
+<%= render "backoffice/admins/shared/send_mail" %>
