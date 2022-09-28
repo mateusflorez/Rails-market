@@ -32,10 +32,10 @@
 ## Instalation instructions:
 ```
 #Clone the repository.
-git clone https://github.com/mateusflorez/rubymvcblog.git
+git clone https://github.com/mateusflorez/Rails-market.git
 
 #Open the terminal on the project root file.
-cd rubymvcblog
+cd  Rails-market
 
 #Install Ruby on Rails dependencies
 bundle install
