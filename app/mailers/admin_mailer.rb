@@ -6,10 +6,11 @@ class AdminMailer < ApplicationMailer
     mail(to: @admin.email, subject: "Your data was updated!")
   end
 
-  def send_message(current_admin, recipient, subject)
+  def send_message(current_admin, recipient, subject, message)
     @current_admin = current_admin
     @recipient = recipient
     @subject = subject
-    mail(to: @recipient.email, subject: @subject)
+    @message = message
+    mail(to: @recipient, subject: @subject)
   end
 end
