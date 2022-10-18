@@ -5,6 +5,6 @@ $(function(){
     $('#exampleModalLabel').text('Sending message to <%= @admin.name %>');
     $sendMailModal.modal('show');
     $sendMailModal.on('shown.bs.modal', function(){
-        $('#message-text').focus();
+        $('#subject-text').focus();
     });
 });
