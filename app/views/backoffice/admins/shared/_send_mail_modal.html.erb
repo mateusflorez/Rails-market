@@ -13,11 +13,11 @@
               </div>
               <div class="mb-3">
                 <label for="subject-text" class="col-form-label">Subject:</label>
-                <%= text_field_tag(:'subject-text', nil, class: "form-control") %>
+                <%= text_field_tag(:'subject-text', nil, class: "form-control", required: "required") %>
               </div>
               <div class="mb-3">
                 <label for="message-text" class="col-form-label">Message:</label>
-                <%= text_area_tag(:'message-text', nil, class: "form-control") %>
+                <%= text_area_tag(:'message-text', nil, class: "form-control", required: "required") %>
               </div>
 
           </div>
