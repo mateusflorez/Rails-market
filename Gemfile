@@ -35,3 +35,5 @@ gem "bootstrap_sb_admin_base_v2", "~> 0.3.6"
 gem "faker", "~> 2.23"
 
 gem "pundit", "~> 2.2"
+
+gem "lerolero_generator", "~> 1.0"
