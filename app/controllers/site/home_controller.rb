@@ -1,8 +1,12 @@
-class Site::HomeController < ApplicationController
-  layout 'site'
+# frozen_string_literal: true
 
-  def index
-    @categories = Category.order(:description)
-    @ads = Ad.limit(8).order(created_at: :desc)
+module Site
+  class HomeController < ApplicationController
+    layout 'site'
+
+    def index
+      @categories = Category.order(:description)
+      @ads = Ad.limit(8).order(created_at: :desc)
+    end
   end
 end

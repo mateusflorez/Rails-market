@@ -1,42 +1,45 @@
-class Backoffice::CategoriesController < BackofficeController
-  before_action :set_category, only: [:edit, :update]
+# frozen_string_literal: true
 
-  def index
-    @categories = Category.all
-  end
+module Backoffice
+  class CategoriesController < BackofficeController
+    before_action :set_category, only: %i[edit update]
 
-  def new
-    @category = Category.new
-  end
-
-  def create
-    @category = CategoryService.create(category_params)
-
-    unless @category.errors.any?
-      redirect_to backoffice_categories_path, notice: 'Category successfuly created.'
-    else
-      render :new
+    def index
+      @categories = Category.all
     end
-  end
 
-  def edit
-  end
-
-  def update
-    if @category.update(category_params)
-      redirect_to backoffice_categories_path, notice: 'Category successfuly updated.'
-    else
-      render :edit
+    def new
+      @category = Category.new
     end
-  end
 
-  private
+    def create
+      @category = CategoryService.create(category_params)
 
-  def set_category
-    @category = Category.find(params[:id])
-  end
+      if @category.errors.any?
+        render :new
+      else
+        redirect_to backoffice_categories_path, notice: 'Category successfuly created.'
+      end
+    end
 
-  def category_params
-    params.require(:category).permit(:description)
+    def edit; end
+
+    def update
+      if @category.update(category_params)
+        redirect_to backoffice_categories_path, notice: 'Category successfuly updated.'
+      else
+        render :edit
+      end
+    end
+
+    private
+
+    def set_category
+      @category = Category.find(params[:id])
+    end
+
+    def category_params
+      params.require(:category).permit(:description)
+    end
   end
 end

@@ -1,7 +1,7 @@
 # encoding : utf-8
+# frozen_string_literal: true
 
 MoneyRails.configure do |config|
-
   # To set the default currency
   #
   config.default_currency = :brl
@@ -25,14 +25,14 @@ MoneyRails.configure do |config|
 
   # Default ActiveRecord migration configuration values for columns:
   #
-   config.amount_column = { prefix: '',           # column name prefix
-                            postfix: '_cents',    # column name  postfix
-                            column_name: nil,     # full column name (overrides prefix, postfix and accessor name)
-                            type: :integer,       # column type
-                            present: true,        # column will be created
-                            null: false,          # other options will be treated as column options
-                            default: 0
-                          }
+
+  config.amount_column = { prefix: '',           # column name prefix
+                           postfix: '_cents',    # column name  postfix
+                           column_name: nil,     # full column name (overrides prefix, postfix and accessor name)
+                           type: :integer,       # column type
+                           present: true,        # column will be created
+                           null: false,          # other options will be treated as column options
+                           default: 0 }
   #
   # config.currency_column = { prefix: '',
   #                            postfix: '_currency',
@@ -71,7 +71,7 @@ MoneyRails.configure do |config|
   #
   # set to BigDecimal::ROUND_HALF_EVEN by default
   #
-  # config.rounding_mode = BigDecimal::ROUND_HALF_UP
+  # config.rounding_mode = BigDecimal::ROUND_UP
 
   # Set default money format globally.
   # Default value is nil meaning "ignore this option".

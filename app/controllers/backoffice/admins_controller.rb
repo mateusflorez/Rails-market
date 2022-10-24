@@ -1,68 +1,70 @@
-class Backoffice::AdminsController < BackofficeController
-  before_action :set_admin, only: [:edit, :update, :destroy]
-  after_action :verify_authorized, only: [:new, :destroy]
-  after_action :verify_policy_scoped, only: :index
+# frozen_string_literal: true
 
-  def index
-    @admins = policy_scope(Admin)
-  end
+module Backoffice
+  class AdminsController < BackofficeController
+    before_action :set_admin, only: %i[edit update destroy]
+    after_action :verify_authorized, only: %i[new destroy]
+    after_action :verify_policy_scoped, only: :index
 
-  def new
-    @admin = Admin.new
-    authorize @admin
-  end
-
-  def create
-    @admin = Admin.new(admin_params)
-    if @admin.save
-      redirect_to backoffice_admins_path, notice: 'Administrator successfuly created.'
-    else
-      render :new
-    end
-  end
-
-  def edit
-  end
-
-  def update
-    if password_blank?
-      params[:admin].delete(:password)
-      params[:admin].delete(:password_confirmation)
+    def index
+      @admins = policy_scope(Admin)
     end
 
-    if @admin.update(admin_params)
-      AdminMailer.update_email(current_admin, @admin).deliver_now
-      redirect_to backoffice_admins_path, notice: 'Administrator successfuly updated.'
-    else
-      render :edit
+    def new
+      @admin = Admin.new
+      authorize @admin
     end
-  end
 
-  def destroy
-    authorize @admin
-    if @admin.destroy
-      redirect_to backoffice_admins_path, notice: 'Administrator successfuly deleted.'
-    else
-      render :index
+    def create
+      @admin = Admin.new(admin_params)
+      if @admin.save
+        redirect_to backoffice_admins_path, notice: 'Administrator successfuly created.'
+      else
+        render :new
+      end
     end
-  end
 
-  private
+    def edit; end
 
-  def set_admin
-    @admin = Admin.find(params[:id])
-  end
+    def update
+      if password_blank?
+        params[:admin].delete(:password)
+        params[:admin].delete(:password_confirmation)
+      end
 
-  def admin_params
-    if @admin.blank?
-      params.require(:admin).permit(:name, :email, :role, :password, :password_confirmation)
-    else
-      params.require(:admin).permit(policy(@admin).permitted_attributes)
+      if @admin.update(admin_params)
+        AdminMailer.update_email(current_admin, @admin).deliver_now
+        redirect_to backoffice_admins_path, notice: 'Administrator successfuly updated.'
+      else
+        render :edit
+      end
     end
-  end
 
-  def password_blank?
-    params[:admin][:password].blank? && params[:admin][:password_confirmation].blank?
+    def destroy
+      authorize @admin
+      if @admin.destroy
+        redirect_to backoffice_admins_path, notice: 'Administrator successfuly deleted.'
+      else
+        render :index
+      end
+    end
+
+    private
+
+    def set_admin
+      @admin = Admin.find(params[:id])
+    end
+
+    def admin_params
+      if @admin.blank?
+        params.require(:admin).permit(:name, :email, :role, :password, :password_confirmation)
+      else
+        params.require(:admin).permit(policy(@admin).permitted_attributes)
+      end
+    end
+
+    def password_blank?
+      params[:admin][:password].blank? && params[:admin][:password_confirmation].blank?
+    end
   end
 end
-

@@ -1,5 +1,6 @@
-class AdminPolicy < ApplicationPolicy
+# frozen_string_literal: true
 
+class AdminPolicy < ApplicationPolicy
   def new?
     user.administrator?
   end
@@ -14,19 +15,19 @@ class AdminPolicy < ApplicationPolicy
 
   def permitted_attributes
     if user.administrator?
-      [:email, :role, :password, :password_confirmation, :name]
+      %i[email role password password_confirmation name]
     else
-      [:email, :password, :password_confirmation, :name]
+      %i[email password password_confirmation name]
     end
   end
 
   class Scope < Scope
-     def resolve
-       if user.administrator?
+    def resolve
+      if user.administrator?
         scope.all
-       else
+      else
         scope.moderators
-       end
-     end
+      end
+    end
   end
 end

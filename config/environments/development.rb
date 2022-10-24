@@ -1,12 +1,14 @@
-require "active_support/core_ext/integer/time"
+# frozen_string_literal: true
+
+require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  #Devise
-  #config.action_mailer.default_url_options = {host: 'localhost', port: 3000}
+  # Devise
+  # config.action_mailer.default_url_options = {host: 'localhost', port: 3000}
 
-  #letter opener
+  # letter opener
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
 
