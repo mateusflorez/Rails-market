@@ -37,3 +37,5 @@ gem "faker", "~> 2.23"
 gem "pundit", "~> 2.2"
 
 gem "lerolero_generator", "~> 1.0"
+
+gem "money-rails", "~> 1.15"
