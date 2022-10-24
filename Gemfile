@@ -43,3 +43,5 @@ gem 'money-rails', '~> 1.15'
 gem 'rubocop-faker', '~> 1.1'
 
 gem 'rubocop', '~> 1.37'
+
+gem "kt-paperclip", "~> 7.1"
