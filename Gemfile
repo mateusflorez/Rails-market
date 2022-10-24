@@ -45,3 +45,5 @@ gem 'rubocop-faker', '~> 1.1'
 gem 'rubocop', '~> 1.37'
 
 gem "kt-paperclip", "~> 7.1"
+
+gem "fog", "~> 2.3"
