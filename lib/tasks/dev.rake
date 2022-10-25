@@ -3,22 +3,22 @@ namespace :dev do
   task setup: :environment do
     puts 'Running development setup...'
 
-    puts "Erasing database... #{`rails db:drop`}"
-    puts "Creating database... #{`rails db:create`}"
-    puts "Migrating database... #{`rails db:migrate`}"
-    puts "Generating database seeds... #{`rails db:seed`}"
+    puts ">> Erasing database... #{`rails db:drop`}"
+    puts ">> Creating database... #{`rails db:create`}"
+    puts ">> Migrating database... #{`rails db:migrate`}"
+    puts ">> Generating database seeds... #{`rails db:seed`}"
     puts `rails dev:admin_setup`
     puts `rails dev:member_setup`
     puts `rails dev:ad_setup`
 
-    puts 'Development setup finished!'
+    puts '>> Development setup finished!'
   end
 
   #################################################################
 
   desc 'Administrators generator'
   task admin_setup: :environment do
-    puts 'Generating fake administrators...'
+    puts '>> Generating fake administrators...'
 
     18.times do
       Admin.create!(
@@ -30,30 +30,31 @@ namespace :dev do
       )
     end
 
-    puts 'Fake administrators successfuly generated!'
+    puts '>> Fake administrators successfuly generated!'
   end
 
   #################################################################
 
   desc 'Members generator'
   task member_setup: :environment do
-    puts 'Generating members...'
+    puts '>> Generating fake members...'
 
     50.times do
       Member.create!(
         email: Faker::Internet.email,
-        password: '12345678'
+        password: '12345678',
+        password_confirmation: '12345678'
       )
     end
 
-    puts 'Members successfuly generated!'
+    puts '>> Fake members successfuly generated!'
   end
 
   #################################################################
 
   desc 'Ads generator'
   task ad_setup: :environment do
-    puts 'Generating fake ads...'
+    puts '>> Generating fake ads...'
 
     100.times do
       Ad.create!(
@@ -66,6 +67,6 @@ namespace :dev do
       )
     end
 
-    puts 'Fake ads successfuly generated!'
+    puts '>> Fake ads successfuly generated!'
   end
 end

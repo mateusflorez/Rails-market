@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-puts 'Generating categories...'
+puts '>> Generating categories...'
 categories = [
   'Animals and accessories',
   'Sports',
@@ -18,11 +18,11 @@ categories.each do |category|
   Category.find_or_create_by(description: category)
 end
 
-puts 'Categories successfuly generated!'
+puts '>> Categories successfuly generated!'
 
 #################################################################
 
-puts 'Generating administrators...'
+puts '>> Generating default administrators...'
 
 Admin.create!(
   email: 'admin@admin.com',
@@ -40,4 +40,16 @@ Admin.create!(
   role: 1
 )
 
-puts 'Administrators successfuly generated!'
+puts '>> Default administrators successfuly generated!'
+
+#################################################################
+
+puts '>> Generating default member...'
+
+Member.create!(
+  email: 'member@member.com',
+  password: '12345678',
+  password_confirmation: '12345678'
+)
+
+puts '>> Default member successfuly generated!'
