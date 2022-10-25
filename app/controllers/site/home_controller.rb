@@ -5,8 +5,8 @@ module Site
     layout 'site'
 
     def index
-      @categories = Category.order(:description)
-      @ads = Ad.limit(8).order(created_at: :desc)
+      @categories = Category.order_by_description
+      @ads = Ad.last_eight
     end
   end
 end
