@@ -40,44 +40,4 @@ Admin.create!(
   role: 1
 )
 
-18.times do
-  Admin.create!(
-    email: Faker::Internet.email,
-    password: '12345678',
-    password_confirmation: '12345678',
-    name: Faker::Name.name,
-    role: [0, 0, 1, 1, 1].sample
-  )
-end
-
 puts 'Administrators successfuly generated!'
-
-#################################################################
-
-puts 'Generating members...'
-
-50.times do
-  Member.create!(
-    email: Faker::Internet.email,
-    password: '12345678'
-  )
-end
-
-puts 'Members successfuly generated!'
-
-#################################################################
-
-puts 'Generating fake ads...'
-
-100.times do
-  Ad.create!(
-    title: Faker::Lorem.sentence(word_count: [2, 3, 4, 5].sample),
-    description: Faker::Lorem.sentence(word_count: [15, 20, 25, 30].sample),
-    member: Member.all.sample,
-    category: Category.all.sample,
-    price: "#{Random.rand(500)}.#{Random.rand(99)}",
-    picture: File.new(Rails.root.join('public', 'templates', 'images-for-ads', "#{Random.rand(9)}.png"), 'r')
-  )
-end
-
-puts 'Fake ads successfuly generated!'
