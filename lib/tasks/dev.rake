@@ -3,9 +3,11 @@
 namespace :dev do
   desc 'Development setup'
   task setup: :environment do
+    images_path = Rails.root.join('public', 'ads')
     puts 'Running development setup...'
 
     puts ">> Erasing database... #{`rails db:drop`}"
+    puts ">> Erasing images... #{`rm -rf #{images_path}`}"
     puts ">> Creating database... #{`rails db:create`}"
     puts ">> Migrating database... #{`rails db:migrate`}"
     puts ">> Generating database seeds... #{`rails db:seed`}"
