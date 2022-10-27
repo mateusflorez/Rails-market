@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddAttachmentPictureToAds < ActiveRecord::Migration[6.1]
   def self.up
     change_table :ads do |t|

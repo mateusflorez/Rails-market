@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 module Site
-  class HomeController < ApplicationController
-    layout 'site'
-
+  class HomeController < SiteController
     def index
       @categories = Category.order_by_description
       @ads = Ad.last_eight
