@@ -5,7 +5,8 @@ class Ad < ApplicationRecord
   belongs_to :category
 
   # scopes
-  scope :last_eight, -> { limit(8).order(created_at: :desc) }
+  scope :descending_order, -> (quantity = 8) { limit(quantity).order(created_at: :desc) }
+  scope :member_ads, -> (member) { where(member: member) }
 
   # paperclip
   has_attached_file :picture, styles: { medium: '450x300#', thumb: '100x100>' },
