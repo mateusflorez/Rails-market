@@ -4,6 +4,9 @@ class Ad < ApplicationRecord
   belongs_to :member
   belongs_to :category
 
+  # validation
+  validates_presence_of :title, :description, :category, :price, :picture
+
   # scopes
   scope :descending_order, ->(quantity = 8) { limit(quantity).order(created_at: :desc) }
   scope :member_ads, ->(member) { where(member: member) }

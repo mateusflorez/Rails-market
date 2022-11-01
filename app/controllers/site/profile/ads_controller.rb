@@ -19,6 +19,21 @@ module Site
         end
       end
 
+      def new
+        @ad = Ad.new
+      end
+
+      def create
+        @ad = Ad.new(ad_params)
+        @ad.member = current_member
+
+        if @ad.save
+          redirect_to site_profile_ads_path, notice: 'Ad successfuly created!'
+        else
+          render :new
+        end
+      end
+
       private
 
       def set_ad
