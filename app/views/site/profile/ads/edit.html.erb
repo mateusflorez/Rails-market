@@ -1,7 +1,7 @@
 <h1 class="mt-4">Editing ad</h1>
 
 <%= form_for([:site, :profile, @ad]) do |f| %>
-    <div class="row">
+    <div class="row mb-3">
         <div class="col-sm-6">
             <div class="form-group">
                 <%= f.label :title %>
@@ -9,5 +9,41 @@
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="row mb-3">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <%= f.label :category %>
+                <%= f.collection_select :category_id, Category.all, :id, :description, {}, class:"form-control" %>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-2">
+            <div class="form-group">
+                <%= f.label :price %>
+                <div class="input-group">
+                    <span class="input-group-text"><%= @ad.price.currency.symbol %></span>
+                    <%= f.text_field :price, class:"form-control", placeholder:"Price" %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <%= f.label :picture %><br>
+                <%= image_tag @ad.picture.url(:medium), class:"img-thumbnail" %>
+                <%= f.file_field :picture, class:"btn"  %>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-10">
+            <div class="form-group">
+                <%= f.label :description %>
+                <%= f.text_area :description, class:"form-control", rows:5 %>
+            </div>
+        </div>
+    </div>
+    <%= submit_tag "Update", class:"btn btn-primary" %>
 <% end %>
