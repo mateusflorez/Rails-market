@@ -3,7 +3,7 @@
 module Site
   module Profile
     class AdsController < Site::ProfileController
-      before_action :set_ad, only: [:edit]
+      before_action :set_ad, only: %i[edit update]
 
       def index
         @ads = Ad.member_ads(current_member)
@@ -11,10 +11,22 @@ module Site
 
       def edit; end
 
+      def update
+        if @ad.update(ad_params)
+          redirect_to site_profile_ads_path, notice: 'Ad successfuly updated!'
+        else
+          render :edit
+        end
+      end
+
       private
 
       def set_ad
         @ad = Ad.find(params[:id])
+      end
+
+      def ad_params
+        params.require(:ad).permit(:id, :title, :category_id, :price, :description, :picture)
       end
     end
   end
