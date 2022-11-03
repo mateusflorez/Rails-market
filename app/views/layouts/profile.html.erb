@@ -21,9 +21,6 @@
     <%= stylesheet_link_tag 'site', media: 'all'%>
     <%= stylesheet_link_tag 'site/profile', media: 'all'%>
     <%= stylesheet_pack_tag 'application', media: 'all'%>
-    <%= javascript_pack_tag 'application'%>
-    <%= javascript_pack_tag 'site'%>
-    <%= javascript_pack_tag 'profile'%>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -38,7 +35,9 @@
     <%= render 'layouts/profile_shared/sidebar_start' %>
     <%= yield %>
     <%= render 'layouts/profile_shared/sidebar_end' %>
-
+    <%= javascript_pack_tag 'application'%>
+    <%= javascript_pack_tag 'site'%>
+    <%= javascript_pack_tag 'profile'%>
 </body>
 
 </html>

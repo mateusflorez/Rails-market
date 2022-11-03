@@ -16,12 +16,13 @@
         <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= stylesheet_link_tag 'site', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-        <%= javascript_pack_tag 'site', 'data-turbolinks-track': 'reload' %>
+
     </head>
     <body>
     <%= render 'layouts/site_shared/navbar' %>
     <%= yield %>
     <%= render 'layouts/site_shared/footer' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'site', 'data-turbolinks-track': 'reload' %>
     </body>
 </html>
