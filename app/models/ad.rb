@@ -5,7 +5,8 @@ class Ad < ApplicationRecord
   belongs_to :category
 
   # validation
-  validates_presence_of :title, :description, :category, :price, :picture
+  validates :title, :description, :category, :price, :picture, :finish_date, presence: true
+  validates :price, numericality: { greater_than: 0 }
 
   # scopes
   scope :descending_order, ->(quantity = 8) { limit(quantity).order(created_at: :desc) }
