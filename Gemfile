@@ -48,4 +48,4 @@ gem 'kt-paperclip', '~> 7.1'
 
 gem 'fog', '~> 2.3'
 
-gem "htmlbeautifier", "~> 1.4"
+gem 'htmlbeautifier', '~> 1.4'

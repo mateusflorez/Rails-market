@@ -3,7 +3,9 @@
 module Site
   module Profile
     class DashboardController < Site::ProfileController
-      def index; end
+      def index
+        @categories = Category.order_by_description
+      end
     end
   end
 end

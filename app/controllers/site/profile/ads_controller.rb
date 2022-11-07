@@ -7,9 +7,12 @@ module Site
 
       def index
         @ads = Ad.member_ads(current_member)
+        @categories = Category.order_by_description
       end
 
-      def edit; end
+      def edit
+        @categories = Category.order_by_description
+      end
 
       def update
         if @ad.update(ad_params)
@@ -21,6 +24,7 @@ module Site
 
       def new
         @ad = Ad.new
+        @categories = Category.order_by_description
       end
 
       def create
