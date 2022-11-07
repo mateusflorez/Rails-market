@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
     <meta name="author" content="">
-
     <title>Rails Market</title>
-
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap icons-->
@@ -16,21 +12,16 @@
     <!-- Rails -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all'%>
     <%= stylesheet_link_tag 'site', media: 'all'%>
     <%= stylesheet_link_tag 'site/profile', media: 'all'%>
     <%= stylesheet_pack_tag 'application', media: 'all'%>
-
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
-
-</head>
-
-<body>
+  </head>
+  <body>
     <%= render 'layouts/site_shared/navbar' %>
     <%= render 'layouts/profile_shared/sidebar_start' %>
     <%= yield %>
@@ -38,6 +29,5 @@
     <%= javascript_pack_tag 'application'%>
     <%= javascript_pack_tag 'site'%>
     <%= javascript_pack_tag 'profile'%>
-</body>
-
+  </body>
 </html>

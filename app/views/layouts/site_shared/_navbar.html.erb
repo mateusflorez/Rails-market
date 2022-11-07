@@ -1,38 +1,38 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-static-top">
-    <div class="container px-4 px-lg-5">
-        <%= link_to "Rails market", root_path, class: "navbar-brand" %>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">All Products</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                        <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <% @categories.each do |category| %>
-                        <li><a class="dropdown-item" href="#!"><%= category.description %></a></li>
-                        <% end %>
-                    </ul>
-                </li>
+  <div class="container px-4 px-lg-5">
+    <%= link_to "Rails market", root_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+        <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#!">All Products</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#!">Popular Items</a></li>
+            <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <% @categories.each do |category| %>
+              <li><a class="dropdown-item" href="#!"><%= category.description %></a></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navbar-nav d-flex">
+        <% unless member_signed_in? %>
+          <li class="nav-item"><%= link_to "Login", new_member_session_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Sign up", new_member_registration_path, class: "nav-link" %></li>
+        <% else %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><%= current_member.email %></a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li><%= link_to "Profile", site_profile_dashboard_index_path, class: "nav-link dropdown-item" %></li>
+              <li><%= link_to "Logout", destroy_member_session_path, class: "nav-link dropdown-item", method: :delete %></li>
             </ul>
-            <ul class="navbar-nav d-flex">
-                <% unless member_signed_in? %>
-                    <li class="nav-item"><%= link_to "Login", new_member_session_path, class: "nav-link" %></li>
-                    <li class="nav-item"><%= link_to "Sign up", new_member_registration_path, class: "nav-link" %></li>
-                <% else %>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><%= current_member.email %></a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><%= link_to "Profile", site_profile_dashboard_index_path, class: "nav-link dropdown-item" %></li>
-                            <li><%= link_to "Logout", destroy_member_session_path, class: "nav-link dropdown-item", method: :delete %></li>
-                        </ul>
-                    </li>
-                <% end %>
-            </ul>
-        </div>
+          </li>
+        <% end %>
+      </ul>
     </div>
+  </div>
 </nav>

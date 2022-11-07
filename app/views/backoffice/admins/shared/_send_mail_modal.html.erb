@@ -7,25 +7,24 @@
       </div>
       <div class="modal-body">
         <%= form_tag(backoffice_send_mail_index_path, remote: true) do %>
-              <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">Recipient:</label>
-                <%= text_field_tag(:'recipient-name', nil, class: "form-control", readonly: "readonly") %>
-              </div>
-              <div class="mb-3">
-                <label for="subject-text" class="col-form-label">Subject:</label>
-                <%= text_field_tag(:'subject-text', nil, class: "form-control", required: "required") %>
-              </div>
-              <div class="mb-3">
-                <label for="message-text" class="col-form-label">Message:</label>
-                <%= text_area_tag(:'message-text', nil, class: "form-control", required: "required") %>
-              </div>
-
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <%= text_field_tag(:'recipient-name', nil, class: "form-control", readonly: "readonly") %>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <%= submit_tag "Send message", class: "btn btn-primary" %>
+          <div class="mb-3">
+            <label for="subject-text" class="col-form-label">Subject:</label>
+            <%= text_field_tag(:'subject-text', nil, class: "form-control", required: "required") %>
           </div>
-        <% end %>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <%= text_area_tag(:'message-text', nil, class: "form-control", required: "required") %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <%= submit_tag "Send message", class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

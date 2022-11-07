@@ -1,10 +1,10 @@
 <% if @ad.errors.any? %>
-    <%= content_tag 'div', class: "alert alert-danger alert-dismissible fade show", role: 'alert' do %>
-        <ul>
-            <% @ad.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-        </ul>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    <% end %>
+  <%= content_tag 'div', class: "alert alert-danger alert-dismissible fade show", role: 'alert' do %>
+    <ul>
+      <% @ad.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <% end %>
 <% end %>

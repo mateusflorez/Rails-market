@@ -13,7 +13,7 @@
   </thead>
   <tbody>
     <% @ads.each do |ad| %>
-        <tr>
+      <tr>
         <th scope="row"><%= ad.id %></th>
         <td><% if ad.picture.present? %><%= image_tag ad.picture.url(:thumb) %><% end %></td>
         <td><%= ad.title %></td>
@@ -24,7 +24,7 @@
             <i class="bi bi-pencil-square"></i>
           <% end %>
         </td>
-        </tr>
+      </tr>
     <% end %>
   </tbody>
 </table>
