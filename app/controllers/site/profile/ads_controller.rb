@@ -7,11 +7,9 @@ module Site
 
       def index
         @ads = Ad.member_ads(current_member)
-        @categories = Category.order_by_description
       end
 
       def edit
-        @categories = Category.order_by_description
       end
 
       def update
@@ -24,7 +22,6 @@ module Site
 
       def new
         @ad = Ad.new
-        @categories = Category.order_by_description
       end
 
       def create
