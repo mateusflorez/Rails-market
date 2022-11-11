@@ -63,7 +63,8 @@ namespace :dev do
     100.times do
       Ad.create!(
         title: Faker::Lorem.sentence(word_count: [2, 3, 4, 5].sample),
-        description: DoctorIpsum::Markdown.entry,
+        description_md: DoctorIpsum::Markdown.entry,
+        description_short: Faker::Lorem.sentence(word_count: [5, 10, 10, 15].sample),
         member: Member.all.sample,
         category: Category.all.sample,
         price: "#{Random.rand(500)}.#{Random.rand(99)}",

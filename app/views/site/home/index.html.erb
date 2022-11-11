@@ -23,7 +23,7 @@
                 <h5 class="fw-bolder"><%= link_to truncate(ad.title, length: 20), site_ad_detail_path(ad), style: "text-decoration: none; color: #000000" %></h5>
                 <!-- Product reviews-->
                 <div class="d-flex justify-content-center small text-muted mb-2">
-                  <%= truncate(ad.description, length: 100) %>
+                  <%= truncate(ad.description_short, length: 100) %>
                 </div>
                 <!-- Product price-->
                 <%= humanized_money_with_symbol ad.price %>

@@ -7,7 +7,7 @@
         <div class="fs-5 mb-5">
           <span><%= humanized_money_with_symbol @ad.price %></span>
         </div>
-        <p class="lead"><%= md_to_html(@ad.description) %></p>
+        <p class="lead"><%= @ad.description.html_safe %></p>
         <div class="d-flex">
           <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
           <button class="btn btn-outline-dark flex-shrink-0" type="button">
@@ -36,7 +36,7 @@
                 <h5 class="fw-bolder"><%= link_to truncate(ad.title, length: 20), site_ad_detail_path(ad), style: "text-decoration: none; color: #000000" %></h5>
                 <!-- Product reviews-->
                 <div class="d-flex justify-content-center small text-muted mb-2">
-                  <%= truncate(ad.description, length: 100) %>
+                  <%= truncate(ad.description_short, length: 100) %>
                 </div>
                 <!-- Product price-->
                 <%= humanized_money_with_symbol ad.price %>
