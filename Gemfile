@@ -26,26 +26,20 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
+  gem 'htmlbeautifier', '~> 1.4'
+  gem "redcarpet", "~> 3.5"
+  gem "doctor_ipsum", "~> 0.3.1"
+  gem 'faker', '~> 2.23'
+  gem 'rubocop-faker', '~> 1.1'
+  gem 'rubocop', '~> 1.37'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
 gem 'devise', '~> 4.8'
-
 gem 'bootstrap_sb_admin_base_v2', '~> 0.3.6'
-
-gem 'faker', '~> 2.23'
-
 gem 'pundit', '~> 2.2'
-
 gem 'money-rails', '~> 1.15'
-
-gem 'rubocop-faker', '~> 1.1'
-
-gem 'rubocop', '~> 1.37'
-
 gem 'kt-paperclip', '~> 7.1'
-
 gem 'fog', '~> 2.3'
 
-gem 'htmlbeautifier', '~> 1.4'
+
